@@ -18,17 +18,6 @@ resource "aws_security_group" "rds-sg" {
         Name = "${var.stack}-sg of mysql"
     }
 }
-
-# resource "aws_security_group_rule" "rds-sg-rule" {
-#     security_group_id = aws_security_group.rds-sg.id
-#     type              = "ingress"
-#     from_port         = 3306
-#     to_port           = 3306
-#     protocol          = "tcp"
-#     cidr_blocks       = ["${var.vpc_cidr}"]
-# }
-
-
 resource "aws_db_subnet_group" "rds-subnet-group" {
     name        = var.db_name
     description = "rds subnet group for ${var.db_name}"
